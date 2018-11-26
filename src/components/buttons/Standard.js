@@ -1,6 +1,7 @@
 import React from "react";
 import posed from "react-pose";
 import { css } from "react-emotion";
+import { useAddToContents } from "../../hooks";
 
 const shared = {
 	fontFamily: "Open Sans",
@@ -88,6 +89,7 @@ const ButtonContainer = posed.div({
 });
 
 const StandardButton = ({
+	id,
 	pointerEvents,
 	uppercase,
 	size,
@@ -96,6 +98,7 @@ const StandardButton = ({
 	icon,
 	children,
 }) => {
+	const anchor = useAddToContents(id);
 	return (
 		<ButtonContainer
 			className={css`
@@ -113,6 +116,7 @@ const StandardButton = ({
 				<span class={`mdi mdi-${icon}`} style={{ marginRight: "8px" }} />
 			)}
 			{children}
+			{anchor}
 		</ButtonContainer>
 	);
 };

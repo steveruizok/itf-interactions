@@ -7,10 +7,10 @@ import ShortStory from "short-story";
 import Menu from "./components/Menu";
 import StandardButton from "./components/buttons/Standard";
 
-const ButtonStandard = props => {
+const ButtonStandard = ({ name }) => {
 	return (
 		<ShortStory
-			name="Button (Standard)"
+			name={name}
 			knobs={{
 				textContent: {
 					type: "text",
@@ -55,7 +55,11 @@ const ButtonStandard = props => {
 				},
 			}}
 		>
-			{state => <StandardButton {...state}>{state.textContent}</StandardButton>}
+			{state => (
+				<StandardButton id={name} {...state}>
+					{state.textContent}
+				</StandardButton>
+			)}
 		</ShortStory>
 	);
 };
@@ -64,7 +68,9 @@ function App() {
 	return (
 		<div className="App">
 			<Menu />
-			<ButtonStandard />
+			<ButtonStandard name="Button (Standard)" />
+			<ButtonStandard name="Button (Alternative)" />
+			<ButtonStandard name="Button (Secondary)" />
 		</div>
 	);
 }
