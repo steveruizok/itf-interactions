@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 import ShortStory from "short-story";
 
+import Menu from "./components/Menu";
 import StandardButton from "./components/buttons/Standard";
 
 const ButtonStandard = props => {
@@ -62,7 +63,7 @@ const ButtonStandard = props => {
 function App() {
   return (
     <div className="App">
-      ITF Interactive components
+      <Menu />
       <ButtonStandard />
     </div>
   );
