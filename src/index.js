@@ -1,76 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import "./styles.css";
-import ShortStory from "short-story";
 
 import Menu from "./components/Menu";
-import StandardButton from "./components/buttons/Standard";
-
-const ButtonStandard = ({ name }) => {
-	return (
-		<ShortStory
-			name={name}
-			knobs={{
-				textContent: {
-					type: "text",
-					label: "Text",
-					default: "Stay in the know",
-				},
-				icon: {
-					type: "text",
-					label: "Icon",
-					default: "",
-				},
-				pose: {
-					type: "enum",
-					label: "State",
-					options: ["init", "hover", "press"],
-					labels: ["Default", "Hover", "Press"],
-					default: "init",
-				},
-				type: {
-					type: "enum",
-					label: "Type",
-					options: ["light", "dark", "white", "flat"],
-					labels: ["Light", "Dark", "White", "Flat"],
-					default: "light",
-				},
-				size: {
-					type: "enum",
-					label: "Size",
-					options: ["s", "m"],
-					labels: ["Small", "Large"],
-					default: "m",
-				},
-				uppercase: {
-					type: "boolean",
-					label: "Uppercase",
-					default: false,
-				},
-				pointerEvents: {
-					type: "boolean",
-					label: "Pointer Events",
-					default: true,
-				},
-			}}
-		>
-			{state => (
-				<StandardButton id={name} {...state}>
-					{state.textContent}
-				</StandardButton>
-			)}
-		</ShortStory>
-	);
-};
+import { StandardButtonStory } from "./components/buttons/StandardButton";
+import { PagerButtonStory } from "./components/pager/PagerButton";
+import { PageIndicatorStory } from "./components/pager/PageIndicator";
+import { PagerStory } from "./components/pager/Pager";
 
 function App() {
 	return (
 		<div className="App">
 			<Menu />
-			<ButtonStandard name="Button (Standard)" />
-			<ButtonStandard name="Button (Alternative)" />
-			<ButtonStandard name="Button (Secondary)" />
+			<StandardButtonStory name="Button (Standard)" />
+			<PagerButtonStory name="Pager Button" />
+			<PageIndicatorStory name="Page Indicator" />
+			<PagerStory name="Pager" />
 		</div>
 	);
 }

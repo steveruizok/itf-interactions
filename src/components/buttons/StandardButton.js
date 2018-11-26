@@ -2,10 +2,10 @@ import React from "react";
 import posed from "react-pose";
 import { css } from "react-emotion";
 import { useAddToContents } from "../../hooks";
+import ShortStory from "short-story";
 
 const shared = {
-	fontFamily: "Open Sans",
-	letterSpacing: ".25",
+	fontFamily: "var(--itf-font)",
 	userSelect: "none",
 	borderStyle: "solid",
 	display: "flex",
@@ -21,6 +21,11 @@ const types = {
 		color: "#FFF",
 		backgroundColor: "#028f70",
 		borderColor: "#54565a",
+	},
+	lightWhite: {
+		color: "#FFF",
+		backgroundColor: "#028f70",
+		borderColor: "#FFFFFF",
 	},
 	dark: {
 		color: "#FFF",
@@ -46,6 +51,7 @@ const sizes = {
 		paddingBottom: "8px",
 		paddingLeft: "32px",
 		paddingRight: "32px",
+		height: "44px",
 	},
 	s: {
 		fontSize: "12px",
@@ -112,13 +118,70 @@ const StandardButton = ({
 			type={type}
 			size={size}
 		>
+			{anchor}
 			{icon[0] && (
 				<span class={`mdi mdi-${icon}`} style={{ marginRight: "8px" }} />
 			)}
 			{children}
-			{anchor}
 		</ButtonContainer>
 	);
 };
 
 export default StandardButton;
+
+export const StandardButtonStory = ({ name }) => {
+	return (
+		<ShortStory
+			name={name}
+			knobs={{
+				textContent: {
+					type: "text",
+					label: "Text",
+					default: "Stay in the know",
+				},
+				icon: {
+					type: "text",
+					label: "Icon",
+					default: "",
+				},
+				pose: {
+					type: "enum",
+					label: "State",
+					options: ["init", "hover", "press"],
+					labels: ["Default", "Hover", "Press"],
+					default: "init",
+				},
+				type: {
+					type: "enum",
+					label: "Type",
+					options: ["light", "lightWhite", "dark", "white", "flat"],
+					labels: ["Light", "Light-White", "Dark", "White", "Flat"],
+					default: "light",
+				},
+				size: {
+					type: "enum",
+					label: "Size",
+					options: ["s", "m"],
+					labels: ["Small", "Large"],
+					default: "m",
+				},
+				uppercase: {
+					type: "boolean",
+					label: "Uppercase",
+					default: false,
+				},
+				pointerEvents: {
+					type: "boolean",
+					label: "Pointer Events",
+					default: true,
+				},
+			}}
+		>
+			{state => (
+				<StandardButton id={name} {...state}>
+					{state.textContent}
+				</StandardButton>
+			)}
+		</ShortStory>
+	);
+};
