@@ -1,98 +1,103 @@
-import React from "react";
-import posed from "react-pose";
-import { css } from "react-emotion";
-import { useAddToContents } from "../../hooks";
-import ShortStory from "short-story";
+import React from 'react'
+import posed from 'react-pose'
+import { css } from 'react-emotion'
+import { useAddToContents } from '../../hooks'
+import ShortStory from 'short-story'
 
 const shared = {
-	fontFamily: "var(--itf-font)",
-	userSelect: "none",
-	borderStyle: "solid",
-	display: "flex",
-	borderWidth: "0px",
-	alignItems: "center",
-	justifyContent: "center",
-	fontWeight: "600",
-	filter: "brightness(100%)",
-};
+	fontFamily: 'var(--itf-font)',
+	userSelect: 'none',
+	borderStyle: 'solid',
+	display: 'flex',
+	borderWidth: '0px',
+	alignItems: 'center',
+	justifyContent: 'center',
+	fontWeight: '600',
+	filter: 'brightness(100%)',
+}
 
 const types = {
 	light: {
-		color: "#FFF",
-		backgroundColor: "#028f70",
-		borderColor: "#54565a",
+		color: 'var(--white)',
+		backgroundColor: 'var(--itf-green)',
+		borderColor: 'var(--itf-grey)',
 	},
 	lightWhite: {
-		color: "#FFF",
-		backgroundColor: "#028f70",
-		borderColor: "#FFFFFF",
+		color: '#FFF',
+		backgroundColor: 'var(--grey-light)',
+		borderColor: 'var(--white)',
+	},
+	grey: {
+		color: '#FFF',
+		backgroundColor: 'var(--itf-grey-light)',
+		borderColor: 'var(--itf-grey)',
 	},
 	dark: {
-		color: "#FFF",
-		backgroundColor: "#54565a",
-		borderColor: "#028f70",
+		color: 'var(--white)',
+		backgroundColor: 'var(--itf-grey)',
+		borderColor: 'var(--itf-green)',
 	},
 	white: {
-		color: "#54565a",
-		backgroundColor: "#FFF",
-		borderColor: "#54565a",
+		color: 'var(--itf-grey)',
+		backgroundColor: 'var(--white)',
+		borderColor: 'var(--itf-grey)',
 	},
 	flat: {
-		color: "#FFF",
-		backgroundColor: "#b1b1b1",
-		borderColor: "#b1b1b1",
+		color: 'var(--white)',
+		backgroundColor: 'var(--itf-grey-light)',
+		borderColor: 'var(--itf-grey-light)',
 	},
-};
+}
 
 const sizes = {
 	m: {
-		fontSize: "16px",
-		paddingTop: "8px",
-		paddingBottom: "8px",
-		paddingLeft: "32px",
-		paddingRight: "32px",
-		height: "44px",
+		fontSize: '16px',
+		paddingTop: '8px',
+		paddingBottom: '8px',
+		paddingLeft: '32px',
+		paddingRight: '32px',
+		height: '44px',
 	},
 	s: {
-		fontSize: "12px",
-		paddingTop: "4px",
-		paddingBottom: "4px",
-		paddingLeft: "24px",
-		paddingRight: "24px",
+		fontSize: '12px',
+		paddingTop: '4px',
+		paddingBottom: '4px',
+		paddingLeft: '24px',
+		paddingRight: '24px',
 	},
-};
+}
 
 const ButtonContainer = posed.div({
 	hoverable: true,
 	pressable: true,
 	init: {
-		filter: "brightness(100%)",
-		paddingTop: "8px",
-		paddingBottom: "8px",
-		borderBottomWidth: "3px",
+		filter: 'brightness(100%)',
+		paddingTop: '8px',
+		paddingBottom: '8px',
+		borderBottomWidth: '3px',
 		transition: {
 			duration: 120,
 		},
 	},
 	hover: {
-		filter: "brightness(112%)",
-		borderBottomWidth: "3px",
-		paddingTop: "8px",
-		paddingBottom: "8px",
+		filter: 'brightness(112%)',
+		borderBottomWidth: '3px',
+		paddingTop: '8px',
+		paddingBottom: '8px',
 		transition: {
 			duration: 150,
 		},
 	},
 	press: {
-		filter: "brightness(95%)",
-		paddingTop: "9px",
-		paddingBottom: "8px",
-		borderBottomWidth: "2px",
+		filter: 'brightness(95%)',
+		paddingTop: '9px',
+		paddingBottom: '8px',
+		borderBottomWidth: '2px',
 		transition: {
 			duration: 150,
 		},
 	},
-});
+})
 
 const StandardButton = ({
 	id,
@@ -104,75 +109,76 @@ const StandardButton = ({
 	icon,
 	children,
 }) => {
-	const anchor = useAddToContents(id);
+	const anchor = useAddToContents(id)
 	return (
 		<ButtonContainer
 			className={css`
         ${shared}
         ${sizes[size]}
         ${types[type]}
-        text-transform: ${uppercase ? "uppercase" : "none"}
+        text-transform: ${uppercase ? 'uppercase' : 'none'}
       `}
-			style={{ pointerEvents: pointerEvents ? "all" : "none" }}
+			style={{ pointerEvents: pointerEvents ? 'all' : 'none' }}
 			pose={pose}
 			type={type}
 			size={size}
 		>
 			{anchor}
-			{icon[0] && (
-				<span class={`mdi mdi-${icon}`} style={{ marginRight: "8px" }} />
+			{icon && icon[0] && (
+				<span class={`mdi mdi-${icon}`} style={{ marginRight: '8px' }} />
 			)}
 			{children}
 		</ButtonContainer>
-	);
-};
+	)
+}
 
-export default StandardButton;
+export default StandardButton
 
 export const StandardButtonStory = ({ name }) => {
+	console.log(name)
 	return (
 		<ShortStory
 			name={name}
 			knobs={{
 				textContent: {
-					type: "text",
-					label: "Text",
-					default: "Stay in the know",
+					type: 'text',
+					label: 'Text',
+					default: 'Stay in the know',
 				},
 				icon: {
-					type: "text",
-					label: "Icon",
-					default: "",
+					type: 'text',
+					label: 'Icon',
+					default: '',
 				},
 				pose: {
-					type: "enum",
-					label: "State",
-					options: ["init", "hover", "press"],
-					labels: ["Default", "Hover", "Press"],
-					default: "init",
+					type: 'enum',
+					label: 'State',
+					options: ['init', 'hover', 'press'],
+					labels: ['Default', 'Hover', 'Press'],
+					default: 'init',
 				},
 				type: {
-					type: "enum",
-					label: "Type",
-					options: ["light", "lightWhite", "dark", "white", "flat"],
-					labels: ["Light", "Light-White", "Dark", "White", "Flat"],
-					default: "light",
+					type: 'enum',
+					label: 'Type',
+					options: ['light', 'lightWhite', 'dark', 'grey', 'white', 'flat'],
+					labels: ['Light', 'Light-White', 'Dark', 'Grey', 'White', 'Flat'],
+					default: 'light',
 				},
 				size: {
-					type: "enum",
-					label: "Size",
-					options: ["s", "m"],
-					labels: ["Small", "Large"],
-					default: "m",
+					type: 'enum',
+					label: 'Size',
+					options: ['s', 'm'],
+					labels: ['Small', 'Large'],
+					default: 'm',
 				},
 				uppercase: {
-					type: "boolean",
-					label: "Uppercase",
+					type: 'boolean',
+					label: 'Uppercase',
 					default: false,
 				},
 				pointerEvents: {
-					type: "boolean",
-					label: "Pointer Events",
+					type: 'boolean',
+					label: 'Pointer Events',
 					default: true,
 				},
 			}}
@@ -183,5 +189,5 @@ export const StandardButtonStory = ({ name }) => {
 				</StandardButton>
 			)}
 		</ShortStory>
-	);
-};
+	)
+}

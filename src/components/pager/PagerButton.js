@@ -1,34 +1,34 @@
-import React from "react";
-import { css } from "react-emotion";
-import { useAddToContents } from "../../hooks";
-import ShortStory from "short-story";
-import getClickable from "../Clickable";
+import React from 'react'
+import { css } from 'react-emotion'
+import { useAddToContents } from '../../hooks'
+import ShortStory from 'short-story/dist/index.es.js'
+import getClickable from '../Clickable'
 
 const shared = `
   font-family: var(--itf-font);
   user-select: none;
-`;
+`
 
 const PagerButton = ({
 	id,
 	pointerEvents = true,
-	color = "green",
-	direction = "left",
-	disabled = "false",
-	pose = "init",
+	color = 'green',
+	direction = 'left',
+	disabled = 'false',
+	pose = 'init',
 	onClick,
 }) => {
-	const anchor = useAddToContents(id);
-	const Clickable = getClickable(disabled);
+	const anchor = useAddToContents(id)
+	const Clickable = getClickable(disabled)
 
 	return (
 		<Clickable
 			className={css`
 				${shared}
 				cursor: pointer;
-				pointer-events: ${pointerEvents ? "all" : "none"};
+				pointer-events: ${pointerEvents ? 'all' : 'none'};
 			`}
-			pose={disabled ? "disabled" : pose}
+			pose={disabled ? 'disabled' : pose}
 			onClick={onClick}
 		>
 			{anchor}
@@ -39,7 +39,7 @@ const PagerButton = ({
 					height: 54px;
 				`}
 			>
-				{direction === "left" ? (
+				{direction === 'left' ? (
 					<g>
 						<polygon
 							fill="rgba(0,0,0,.2)"
@@ -80,10 +80,10 @@ const PagerButton = ({
 				)}
 			</svg>
 		</Clickable>
-	);
-};
+	)
+}
 
-export default PagerButton;
+export default PagerButton
 
 export const PagerButtonStory = ({ name }) => {
 	return (
@@ -91,34 +91,34 @@ export const PagerButtonStory = ({ name }) => {
 			name={name}
 			knobs={{
 				pose: {
-					type: "enum",
-					label: "State",
-					options: ["init", "hover", "press", "disabled"],
-					labels: ["Default", "Hover", "Press", "Disabled"],
-					default: "init",
+					type: 'enum',
+					label: 'State',
+					options: ['init', 'hover', 'press', 'disabled'],
+					labels: ['Default', 'Hover', 'Press', 'Disabled'],
+					default: 'init',
 				},
 				color: {
-					type: "enum",
-					label: "Color",
-					options: ["green", "grey"],
-					labels: ["Green", "Grey"],
-					default: "green",
+					type: 'enum',
+					label: 'Color',
+					options: ['green', 'grey'],
+					labels: ['Green', 'Grey'],
+					default: 'green',
 				},
 				direction: {
-					type: "enum",
-					label: "Direction",
-					options: ["left", "right"],
-					labels: ["Left", "Right"],
-					default: "left",
+					type: 'enum',
+					label: 'Direction',
+					options: ['left', 'right'],
+					labels: ['Left', 'Right'],
+					default: 'left',
 				},
 				disabled: {
-					type: "boolean",
-					label: "Disabled",
+					type: 'boolean',
+					label: 'Disabled',
 					default: false,
 				},
 				pointerEvents: {
-					type: "boolean",
-					label: "Pointer Events",
+					type: 'boolean',
+					label: 'Pointer Events',
 					default: true,
 				},
 			}}
@@ -129,5 +129,5 @@ export const PagerButtonStory = ({ name }) => {
 				</PagerButton>
 			)}
 		</ShortStory>
-	);
-};
+	)
+}

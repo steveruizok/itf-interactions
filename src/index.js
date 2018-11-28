@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./styles.css";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './styles.css'
 
-import Menu from "./components/Menu";
-import { StandardButtonStory } from "./components/buttons/StandardButton";
-import { PagerButtonStory } from "./components/pager/PagerButton";
-import { PageIndicatorStory } from "./components/pager/PageIndicator";
-import { PagerStory } from "./components/pager/Pager";
+import Menu from './components/Menu'
+import { StandardButtonStory } from './components/buttons/StandardButton'
+import { PagerButtonStory } from './components/pager/PagerButton'
+import { PageIndicatorStory } from './components/pager/PageIndicator'
+import { PagerStory } from './components/pager/Pager'
 
 function App() {
 	return (
@@ -17,8 +17,8 @@ function App() {
 			<PageIndicatorStory name="Page Indicator" />
 			<PagerStory name="Pager" />
 		</div>
-	);
+	)
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)

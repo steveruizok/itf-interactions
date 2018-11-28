@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styled from "react-emotion";
-import { useContents } from "../hooks";
+import React, { useState } from 'react'
+import styled from 'react-emotion'
+import { useContents } from '../hooks'
 
 const Menu = props => {
-	const [menuOpenState, setMenuOpenState] = useState(false);
-	const contents = useContents();
+	const [menuOpenState, setMenuOpenState] = useState(false)
+	const contents = useContents()
 
 	return [
 		<MenuContainer>
@@ -13,7 +13,7 @@ const Menu = props => {
 					focus={menuOpenState}
 					onClick={() => setMenuOpenState(!menuOpenState)}
 				>
-					{menuOpenState ? "Close" : "Menu"}
+					{menuOpenState ? 'Close' : 'Menu'}
 				</MenuButton>
 				<div>ITF Interactions</div>
 				<MenuAttribution>2018</MenuAttribution>
@@ -33,12 +33,12 @@ const Menu = props => {
 				</ul>
 			</MenuLeftContent>
 		</MenuLeft>,
-	];
-};
+	]
+}
 
-export default Menu;
+export default Menu
 
-const MenuContainer = styled("div")`
+const MenuContainer = styled('div')`
 	position: fixed;
 	user-select: none;
 	font-family: Avenir, sans-serif;
@@ -55,18 +55,18 @@ const MenuContainer = styled("div")`
 	background-color: #fff;
 	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 	z-index: 12001;
-`;
+`
 
-const MenuContent = styled("div")`
+const MenuContent = styled('div')`
 	height: 48px;
 	width: 100vw;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 8px;
-`;
+`
 
-const MenuLeft = styled("div")`
+const MenuLeft = styled('div')`
 	display: flex;
 	user-select: none;
 	font-family: Avenir, sans-serif;
@@ -76,16 +76,16 @@ const MenuLeft = styled("div")`
 	top: 0;
 	height: calc(100vh + 200px);
 	width: 450px;
-	transform: translateX(${({ open }) => (open ? "-150px" : "-450px")});
+	transform: translateX(${({ open }) => (open ? '-150px' : '-450px')});
 	box-shadow: 1px 0 5px rgba(0, 0, 0, 0.25);
 	padding-top: 48px;
 	padding0-bottom: 200px;
 	color: #fff;
 	background-color: #1d1d1d;
 	z-index: 12000;
-	transition: all ${({ open }) => (open ? ".2s" : ".15s")};
-`;
-const MenuLeftContent = styled("div")`
+	transition: all ${({ open }) => (open ? '.2s' : '.15s')};
+`
+const MenuLeftContent = styled('div')`
 	padding: 24px 8px;
 	text-align: left;
 	width: 300px;
@@ -108,9 +108,9 @@ const MenuLeftContent = styled("div")`
 	li:hover {
 		background-color: #111111;
 	}
-`;
+`
 
-const MenuButton = styled("button")`
+const MenuButton = styled('button')`
 	font-size: 16px;
 	padding: 0;
 	border: none;
@@ -124,8 +124,8 @@ const MenuButton = styled("button")`
 		filter: brightness(110%);
 		text-decoration: underline;
 	}
-`;
+`
 
-const MenuAttribution = styled("div")`
+const MenuAttribution = styled('div')`
 	font-size: 16px;
-`;
+`

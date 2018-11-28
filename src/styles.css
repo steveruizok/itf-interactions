@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 html,
 * {
@@ -10,8 +10,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
 	background-color: #efefef;
-	font-family: "Lato", "Calibri", Helvetica, Arial, sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: 'Lato', 'Calibri', Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .App {
@@ -29,8 +29,8 @@ a:hover {
 }
 
 :root {
-	--itf-font: "Lato", "Calibri", Helvetica, Arial, sans-serif,
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--itf-font: 'Lato', 'Calibri', Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	--white: #fff;
 	--black: #000;
 	--itf-grey: #54565a;
@@ -58,7 +58,7 @@ a:hover {
 	--itf-clay-darkest: #43190d;
 	--itf-grey-lightest: #eeeeef;
 	--itf-grey-lighter: #bbbbbd;
-	--itf-grey-light: #87898c;
+	--itf-grey-light: #979797;
 	--itf-grey-dark: #4c4d51;
 	--itf-grey-darker: #323436;
 	--itf-grey-darkest: #191a1b;
