@@ -45,6 +45,7 @@ const Pager = ({ id, pages = 0, pointerEvents }) => {
 				onClick={() => changePage(-1)}
 				direction="left"
 				color="green"
+				pointerEvents={pointerEvents}
 				disabled={currentState === 'min'}
 			/>
 			<div
@@ -63,6 +64,7 @@ const Pager = ({ id, pages = 0, pointerEvents }) => {
 							updateState(i)
 						}}
 						active={i === currentPage}
+						pointerEvents={pointerEvents}
 					/>
 				))}
 			</div>
@@ -71,6 +73,7 @@ const Pager = ({ id, pages = 0, pointerEvents }) => {
 				direction="right"
 				color="green"
 				disabled={currentState === 'max'}
+				pointerEvents={pointerEvents}
 			/>
 		</div>
 	)

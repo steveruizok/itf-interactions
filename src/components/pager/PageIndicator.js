@@ -34,7 +34,7 @@ const PosedInner = posed.div({
 
 const PageIndicator = ({ id, onClick, pointerEvents, active, pose }) => {
 	const anchor = useAddToContents(id)
-	const Clickable = getClickable(false)
+	const Clickable = getClickable(false, pointerEvents)
 	return (
 		<Clickable
 			className={css`

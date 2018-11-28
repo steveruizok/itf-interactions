@@ -1,26 +1,26 @@
-import posed from "react-pose";
+import posed from 'react-pose'
 
-const getClickable = (disabled = false) => {
+const getClickable = (disabled = false, pointerEvents = true) => {
 	return posed.div({
-		hoverable: !disabled,
-		pressable: !disabled,
+		hoverable: !disabled && pointerEvents,
+		pressable: !disabled && pointerEvents,
 		init: {
 			opacity: 1,
-			filter: "brightness(100%)",
+			filter: 'brightness(100%)',
 			transition: {
 				duration: 120,
 			},
 		},
 		hover: {
 			opacity: 1,
-			filter: "brightness(112%)",
+			filter: 'brightness(112%)',
 			transition: {
 				duration: 150,
 			},
 		},
 		press: {
 			opacity: 1,
-			filter: "brightness(95%)",
+			filter: 'brightness(95%)',
 			transition: {
 				duration: 150,
 			},
@@ -31,7 +31,7 @@ const getClickable = (disabled = false) => {
 				duration: 100,
 			},
 		},
-	});
-};
+	})
+}
 
-export default getClickable;
+export default getClickable
