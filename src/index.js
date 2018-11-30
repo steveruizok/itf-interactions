@@ -1,24 +1,27 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import './styles.css'
 
-import Menu from './components/Menu'
-import { StandardButtonStory } from './components/buttons/StandardButton'
-import { PagerButtonStory } from './components/pager/PagerButton'
-import { PageIndicatorStory } from './components/pager/PageIndicator'
-import { PagerStory } from './components/pager/Pager'
+import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 
-function App() {
-	return (
-		<div className="App">
-			<Menu />
-			<StandardButtonStory name="Button (Standard)" />
-			<PagerButtonStory name="Pager Button" />
-			<PageIndicatorStory name="Page Indicator" />
-			<PagerStory name="Pager" />
-		</div>
-	)
-}
+import App from './App'
+
+const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
+
+const client = new ApolloClient({
+	link: httpLink,
+	cache: new InMemoryCache(),
+})
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+ReactDOM.render(
+	<ApolloProvider client={client}>
+		<ApolloHooksProvider client={client}>
+			<Suspense fallback={<div>Loading...</div>}>
+				<App />
+			</Suspense>
+		</ApolloHooksProvider>
+	</ApolloProvider>,
+	rootElement
+)

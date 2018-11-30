@@ -1,39 +1,44 @@
 import React, { useState } from 'react'
 import styled from 'react-emotion'
 import { useContents } from '../hooks'
+import { uniqueId } from 'lodash'
 
 const Menu = props => {
 	const [menuOpenState, setMenuOpenState] = useState(false)
 	const contents = useContents()
 
-	return [
-		<MenuContainer>
-			<MenuContent>
-				<MenuButton
-					focus={menuOpenState}
-					onClick={() => setMenuOpenState(!menuOpenState)}
-				>
-					{menuOpenState ? 'Close' : 'Menu'}
-				</MenuButton>
-				<div>ITF Interactions</div>
-				<MenuAttribution>2018</MenuAttribution>
-			</MenuContent>
-		</MenuContainer>,
-		<MenuLeft open={menuOpenState} onBlur={() => setMenuOpenState(false)}>
-			<MenuLeftContent>
-				<h2>Contents</h2>
-				<ul>
-					{Object.values(contents).map(k => (
-						<li>
-							<a href={`#${k}`} onClick={() => setMenuOpenState(false)}>
-								{k}
-							</a>
-						</li>
-					))}
-				</ul>
-			</MenuLeftContent>
-		</MenuLeft>,
-	]
+	return (
+		<React.Fragment>
+			<MenuContainer key={uniqueId()}>
+				<MenuContent>
+					<MenuButton
+						focus={menuOpenState}
+						onClick={() => setMenuOpenState(!menuOpenState)}
+					>
+						{menuOpenState ? 'Close' : 'Menu'}
+					</MenuButton>
+					<div>ITF Interactions</div>
+					<MenuAttribution>2018</MenuAttribution>
+				</MenuContent>
+			</MenuContainer>
+			,
+			<MenuLeft open={menuOpenState} onBlur={() => setMenuOpenState(false)}>
+				<MenuLeftContent>
+					<h2>Contents</h2>
+					<ul>
+						{Object.values(contents).map(k => (
+							<li key={uniqueId()}>
+								<a href={`#${k}`} onClick={() => setMenuOpenState(false)}>
+									{k}
+								</a>
+							</li>
+						))}
+					</ul>
+				</MenuLeftContent>
+			</MenuLeft>
+			,
+		</React.Fragment>
+	)
 }
 
 export default Menu

@@ -135,7 +135,6 @@ const StandardButton = ({
 export default StandardButton
 
 export const StandardButtonStory = ({ name }) => {
-	console.log(name)
 	return (
 		<ShortStory
 			name={name}

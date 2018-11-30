@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { css } from 'react-emotion'
 import { useAddToContents } from '../../hooks'
 import ShortStory from 'short-story/dist/index.es.js'
+import { uniqueId } from 'lodash'
 
 import PagerButton from './PagerButton'
 import PageIndicator from './PageIndicator'
@@ -59,6 +60,7 @@ const Pager = ({ id, pages = 0, pointerEvents }) => {
 			>
 				{pageArray.map(i => (
 					<PageIndicator
+						key={uniqueId()}
 						onClick={() => {
 							setCurrentPage(i)
 							updateState(i)
