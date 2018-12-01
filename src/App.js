@@ -11,7 +11,7 @@ import { CalendarStory } from './components/Calendar'
 const App = () => {
 	return (
 		<div className="App">
-			<Menu />
+			<Menu title="Interactions" />
 			<StandardButtonStory name="Button (Standard)" />
 			<PagerButtonStory name="Pager Button" />
 			<PageIndicatorStory name="Page Indicator" />

@@ -3,7 +3,7 @@ import styled from 'react-emotion'
 import { useContents } from '../hooks'
 import { uniqueId } from 'lodash'
 
-const Menu = props => {
+const Menu = ({ title }) => {
 	const [menuOpenState, setMenuOpenState] = useState(false)
 	const contents = useContents()
 
@@ -17,7 +17,7 @@ const Menu = props => {
 					>
 						{menuOpenState ? 'Close' : 'Menu'}
 					</MenuButton>
-					<div>ITF Interactions</div>
+					<div>{title}</div>
 					<MenuAttribution>2018</MenuAttribution>
 				</MenuContent>
 			</MenuContainer>
