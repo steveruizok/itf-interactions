@@ -19,7 +19,7 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 })
 
-const App = () => {
+const App = ({ calendar = false }) => {
 	return (
 		<div className="App">
 			<Menu title="Interactions" />
@@ -27,15 +27,21 @@ const App = () => {
 			<PagerButtonStory name="Pager Button" />
 			<PageIndicatorStory name="Page Indicator" />
 			<PagerStory name="Pager" />
-			<ApolloProvider client={client}>
-				<ApolloHooksProvider client={client}>
-					<Suspense fallback={<div>Loading...</div>}>
-						<CalendarStory name="Calendar" />
-					</Suspense>
-				</ApolloHooksProvider>
-			</ApolloProvider>
+			{calendar && <Calendar />}
 		</div>
 	)
 }
 
 export default App
+
+const Calendar = props => {
+	return (
+		<ApolloProvider client={client}>
+			<ApolloHooksProvider client={client}>
+				<Suspense fallback={<div>Loading...</div>}>
+					<CalendarStory name="Calendar" />
+				</Suspense>
+			</ApolloHooksProvider>
+		</ApolloProvider>
+	)
+}

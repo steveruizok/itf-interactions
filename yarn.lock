@@ -1881,6 +1881,11 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-add-react-displayname@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/babel-plugin-add-react-displayname/-/babel-plugin-add-react-displayname-0.0.5.tgz#339d4cddb7b65fd62d1df9db9fe04de134122bd5"
+  integrity sha1-M51M3be2X9YtHfnbn+BN4TQSK9U=
+
 babel-plugin-dynamic-import-node@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.2.0.tgz#c0adfb07d95f4a4495e9aaac6ec386c4d7c2524e"
@@ -1892,6 +1897,22 @@ babel-plugin-emotion@10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.0.tgz#ceb177a64d5ccba3c28d7de4a0697d0f3a66315f"
   integrity sha512-O0ykSwaJQVHuZcAd0/TuMbG6QzuArGheL9XeEoQfgBeFlcyrGEj/2JexsCk4iMMiykxW7hfulm0zKy864PWOSw==
+  dependencies:
+    "@babel/helper-module-imports" "^7.0.0"
+    "@emotion/hash" "0.7.1"
+    "@emotion/memoize" "0.7.1"
+    "@emotion/serialize" "0.11.0"
+    babel-plugin-macros "^2.0.0"
+    babel-plugin-syntax-jsx "^6.18.0"
+    convert-source-map "^1.5.0"
+    escape-string-regexp "^1.0.5"
+    find-root "^1.1.0"
+    source-map "^0.5.7"
+
+babel-plugin-emotion@^10.0.2:
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.2.tgz#c98e43f9a765931d66ac8ad0849804b6b7e1bd22"
+  integrity sha512-ltH4s23Q/TqjzfSVzv7qiHu14+IFAhOVwarRza4+5LWlbFTISAAveVbC0aC0rh4Y450jotcyqX+GKdjj+9tnEg==
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@emotion/hash" "0.7.1"
@@ -7480,6 +7501,11 @@ parse-passwd@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
   integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
 
+parse-prop-types@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/parse-prop-types/-/parse-prop-types-0.3.0.tgz#c0d3ccff4e3baabed6ec498974a657314a8f18d8"
+  integrity sha512-HAvQ2sGc2Y+OLWddBG+KKlxU/F931Vq0GPSqKVaRJb6bUVdkIYxk63mJ/ZwX1VTjZ0h34qrCXE3tmSVUHB1zxQ==
+
 parse5@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
@@ -9389,16 +9415,18 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-short-story@^1.5.7:
-  version "1.5.7"
-  resolved "https://registry.yarnpkg.com/short-story/-/short-story-1.5.7.tgz#df7ead52c7e6f9129d7f0df9e420c44de57141ca"
-  integrity sha512-59W17ctVtb42pzc6mzNy2V7NqIxzfjI9xVSaBwciTpbu1KOdvPNUQ4V22KgHZGa2JScYCiNiNyf9Q8U9ywyIPw==
+short-story@^1.5.8:
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/short-story/-/short-story-1.5.8.tgz#be18dd92bb769ca8659f33895d972b8b491d6a94"
+  integrity sha512-pBw9mX5voPmcAurU2Dh6HYUNjRg1EpsZicMwL7iY6mZvQCX+kcioT7qrcujxpBsNTbr0CKuCUZIBS33DcLWkxw==
   dependencies:
     "@emotion/core" "^10.0.0"
     "@emotion/styled" "^10.0.0"
     emotion "^10.0.0"
+    parse-prop-types "^0.3.0"
     prism-react-renderer "^0.1.5"
     prismjs "^1.15.0"
+    prop-types "^15.6.2"
     react-element-to-jsx-string "^14.0.2"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
